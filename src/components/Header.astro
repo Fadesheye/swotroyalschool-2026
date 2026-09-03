@@ -1,0 +1,150 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/curriculum', label: 'Curriculum' },
+  { href: '/facilities', label: 'Facilities' },
+  { href: '/events', label: 'Events' },
+  { href: '/staff', label: 'Staff' },
+  { href: '/principal', label: "Proprietress' Note" },
+];
+const current = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand">
+      <img src="/images/swotlogo-png.png" alt="Swotroyal Montessori logo" class="brand-logo" />
+      <div>
+      <span class="brand-name">Swotroyal</span>
+      <span class="brand-sub">School</span>
+      </div>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <ul>
+        {links.map(link => (
+          <li>
+            <a href={link.href} aria-current={current === link.href ? 'page' : undefined}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="/#admissions" class="btn btn-solid admissions-cta">Admissions</a>
+
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .brand {
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    margin-right: auto;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .brand-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+  }
+  .site-nav ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover,
+  .site-nav a[aria-current='page'] {
+    color: var(--ink);
+    border-bottom-color: var(--gold);
+  }
+  .admissions-cta { flex-shrink: 0; }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    display: block;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  @media (max-width: 860px) {
+    .site-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+    .site-nav.open { display: block; }
+    .site-nav ul {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .site-nav a {
+      display: block;
+      padding: 0.6rem 0;
+    }
+    .admissions-cta { display: none; }
+    .menu-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+</script>

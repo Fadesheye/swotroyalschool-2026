@@ -1,0 +1,83 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Contact</h3>
+      <hr class="rule" />
+      <p>Majek, 22 Goke Kupolati,<br />Eti-Osa, Lagos</p>
+      <p><a href="mailto:swotroyal@gmail.com">swotroyal@gmail.com</a></p>
+      <p>01&ndash;4546700<br />0817 138 2821<br />0803 307 0713</p>
+    </div>
+
+    <div>
+      <h3>About Us</h3>
+      <hr class="rule" />
+      <p>We are a Lagos-based nursery and primary school focused on excellence, teaching students through positive learning experiences shaped around each child.</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <hr class="rule" />
+      <ul class="footer-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/curriculum">Curriculum</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="https://goo.gl/maps/xCTEmz2EGFGUoEen9" target="_blank" rel="noopener noreferrer">Find us on the map</a></li>
+      </ul>
+      <div class="social">
+        <a href="https://www.facebook.com/pages/category/Elementary-School/SwotRoyal-Montessori-School-1747377715567635/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>&copy; {year} Swotroyal Montessori School.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--ink);
+    color: var(--paper);
+    margin-top: 4rem;
+    padding-top: 3.5rem;
+  }
+  .site-footer h3 {
+    color: var(--paper);
+    font-size: 1.05rem;
+  }
+  .site-footer p, .site-footer a {
+    color: rgba(247, 243, 234, 0.78);
+  }
+  .site-footer hr.rule { border-top-color: rgba(247, 243, 234, 0.25); }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  .footer-links li { margin-bottom: 0.4rem; }
+  .footer-links a { text-decoration: none; }
+  .footer-links a:hover { color: var(--gold); }
+  .social a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(247, 243, 234, 0.15);
+    padding: 1.25rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  .footer-bottom p { margin: 0; color: rgba(247, 243, 234, 0.6); }
+</style>

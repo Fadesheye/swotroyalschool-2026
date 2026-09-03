@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const events = (await getCollection('events')).slice(0, 3);
+
+const stages = [
+  { name: 'Creche', img: '/images/swot4.webp', copy: "The Montessori section of Swotroyal is a well-equipped creche environment laying a well-rounded foundation for children aged 18 months to 5 years+." },
+  { name: 'Nursery', img: '/images/swot2.webp', copy: "Our Nursery school is designed to inspire and nurture children in a child-centred environment that supports early education and development." },
+  { name: 'Primary', img: '/images/swot3.webp', copy: "The Primary school establishes a fundamental, effective level of reading, writing and oral communication to carry pupils into further learning." },
+];
+
+const activities = [
+  { title: 'Bus Service', copy: 'Safe, comfortable transportation for pupils within the Ajah attendance area, always accompanied by a designated teacher.' },
+  { title: 'Music Lesson', copy: 'A wide range of instruments and fun learning experiences that support brain development, creativity and self-expression.' },
+  { title: 'Languages', copy: 'A stimulating language environment that gives pupils the tools to develop their spoken and written communication.' },
+  { title: 'Extra-Curricular', copy: 'Activities that build an all-round child and help identify inborn talents alongside strong academic grades.' },
+  { title: 'Excursions', copy: 'Trips to zoos, nature centres, and museums that deepen understanding beyond the regular classroom.' },
+  { title: 'Sports', copy: 'Weekly sport and games activities, plus Inter-House sport events, building self-esteem and mental alertness.' },
+];
+---
+<Layout title="Home">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow-mark">Ajah, Lagos</p>
+        <h1 class="hero-title">
+          Success<br />
+          Royalty<br />
+          Integrity
+        </h1>
+        <p>A nursery and primary school dedicated to teaching children through positive, hands-on learning experiences — built around who each child is.</p>
+        <a href="#admissions" class="btn btn-solid">Admissions Now</a>
+      </div>
+      <div class="hero-image">
+        <img src="/images/classrm23.webp" alt="A Swotroyal classroom" />
+      </div>
+    </div>
+  </section>
+
+  <section class="stages">
+    <div class="wrap">
+      <div class="grid-3">
+        {stages.map(s => (
+          <div class="panel stage-card">
+            <img src={s.img} alt={s.name} class="stage-img" />
+            <h2>{s.name}</h2>
+            <p>{s.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="wrap">
+      <h2>A Lagos-based nursery and primary school focused on excellence</h2>
+      <p>We believe the unique styles of every student should shape how learning is planned and delivered. We take seriously our responsibility for your child's intelligence, skills and horizon as they start their lives.</p>
+    </div>
+  </section>
+
+  <section class="admissions" id="admissions">
+    <div class="wrap admissions-inner">
+      <div>
+        <h2>Admissions currently ongoing</h2>
+        <p>We welcome parents and their beloved children to join us and start education today at Swotroyal Montessori School.</p>
+      </div>
+      <a href="#contact" class="btn btn-solid">Contact Us</a>
+    </div>
+  </section>
+
+  <section class="activities">
+    <div class="wrap">
+      <p class="eyebrow-mark">Our Activities</p>
+      <h2>The best services just for your child</h2>
+      <hr class="rule" />
+      <div class="grid-3 activity-grid">
+        {activities.map(a => (
+          <div>
+            <h3>{a.title}</h3>
+            <p>{a.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="notes-events">
+    <div class="wrap grid-2">
+      <div class="panel">
+        <h3>Proprietress' Note</h3>
+        <p>Dear Parents and Students, it is with great pleasure that I welcome you to our school. I want to reassure you of our commitment to the provision of an excellent, all-round education for our students in a state-of-the-art facility.</p>
+        <a href="/principal" class="btn">Continue reading</a>
+      </div>
+
+      <div>
+        <h3>Latest Events &amp; News</h3>
+        <hr class="rule" />
+        <div class="event-list">
+          {events.map(e => (
+            <div class="event-row">
+              <img src={e.data.image} alt={e.data.title} />
+              <div>
+                <h4>{e.data.title}</h4>
+                <a href="/events">See more</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact"></section>
+</Layout>
+
+<style>
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    padding: 3.5rem 1.5rem 4.5rem;
+  }
+  @media (max-width: 800px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 2rem; }
+  }
+  .hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    letter-spacing: -0.01em;
+  }
+  .hero-image img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border: 1px solid var(--line);
+  }
+  .stages { padding-top: 0; }
+  .stage-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .statement {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .statement h2 {
+    max-width: 26ch;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+  }
+  .statement p { color: rgba(247,243,234,0.8); max-width: 60ch; }
+  .admissions {
+    background: var(--gold);
+  }
+  .admissions-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .admissions h2, .admissions p { margin-bottom: 0; }
+  .admissions .btn-solid { flex-shrink: 0; }
+  .activity-grid h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .event-list { display: flex; flex-direction: column; gap: 1rem; }
+  .event-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .event-row img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .event-row h4 { margin: 0 0 0.2rem; font-size: 1rem; }
+  .event-row a { font-size: 0.85rem; color: var(--teal); text-decoration: none; font-weight: 600; }
+</style>

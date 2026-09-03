@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="About">
+  <section class="page-hero">
+    <img src="/images/about-banner.webp" alt="" />
+    <div class="wrap">
+      <p class="eyebrow-mark">Founded in 2010</p>
+      <h1>Vision, Mission &amp; Core Values</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid-3">
+      <div class="panel">
+        <h2>Vision</h2>
+        <hr class="rule" />
+        <p>To inculcate Godliness and excellence into the young minds of our future leaders, towards the development of society and the nation at large.</p>
+      </div>
+      <div class="panel">
+        <h2>Mission</h2>
+        <hr class="rule" />
+        <p>To lay and build a sure, solid foundation for the child to develop their personality, character, and mental and physical potential to the maximum level of attainment, using the best possible hands and modern amenities available.</p>
+      </div>
+      <div class="panel">
+        <h2>Core Values</h2>
+        <hr class="rule" />
+        <!-- <p class="placeholder-note">Placeholder — replace with the school's real core values before publishing.</p> -->
+        <ul class="values-list">
+          <li><b>Success</li>
+          <li>Royalty</li>
+          <li>Integrity</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="song-section">
+    <div class="wrap grid-2">
+      <div>
+      <p class="eyebrow-mark">School Song</p>
+      <h2>Our Anthem</h2>
+      <hr class="rule" />
+      <p>
+        We are the Learners of Swotroyal<br />
+        We are born for greater excellence<br />
+        We are moulded, nurtured and we're great<br />
+        On Christ the Solid Rock we stand<br /><br />
+        <em>Chorus:</em><br />
+        Swotroyal (x3)<br />
+        We mould and Nurture<br />
+        Swotroyal (x3)<br />
+        In God We trust
+      </p>
+    </div>
+    <img src="/images/swot brand.png" alt="" class="song-img" />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { position: relative; }
+  .page-hero img {
+    width: 100%;
+    height: clamp(160px, 25vw, 220px);
+    object-fit: cover;
+  }
+  
+  .page-hero .wrap {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .page-hero img {
+      object-position: 18%;
+    }
+    .page-hero .wrap {
+    top: 11rem; /* smaller = lower, tweak to taste */
+    }
+  }
+  .page-hero h1 { color: #000; }
+  .page-hero .eyebrow-mark { color: var(--gold); }
+  .song-section { background: var(--paper-card); }
+
+  .values-list { list-style: none; padding: 0; margin: 0; }
+  .values-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--line); }
+
+  .song-img { width: 100%; height: 100%; object-fit: cover; }
+</style>

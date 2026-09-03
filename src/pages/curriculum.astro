@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const nursery = ['Reading Readiness', 'Number Readiness', 'Elementary Science', 'Writing', 'Drawing and Painting', 'Rhymes', 'Social Studies', 'Story Telling', 'Physical Exercises', 'Religious Knowledge', 'Computer Knowledge'];
+const primary = ['English Language (Comprehension, Grammar, Literature-in-English, Composition, Phonetics)', 'Mathematics', 'Elementary Science', 'Vocational Aptitude', 'Health Education', 'French Language', 'Social Studies', 'Indigenous Language', 'Creative Arts', 'Religious Knowledge', 'Computer Knowledge', 'Quantitative Reasoning', 'Verbal Reasoning', 'Music', 'Agric Science', 'Home Economics'];
+---
+<Layout title="Curriculum">
+  <section class="page-hero">
+    <img src="/images/curri-banner.webp" alt="" />
+    <div class="wrap"><h1>Curriculum</h1></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Creche</h2>
+      <hr class="rule" />
+      <p>The Montessori section of Swotroyal School is a well-equipped creche environment for laying a well-rounded foundation for children aged 18 months to 5 years+. The curriculum is designed to help a child unfold their talents, and to sharpen their mental and physical abilities through rhymes, stories, pictorial play, early writing and literature.</p>
+    </div>
+  </section>
+
+  <section class="alt-bg">
+    <div class="wrap grid-2">
+      <div>
+        <h2>Nursery</h2>
+        <hr class="rule" />
+        <p>Our Nursery school is well-designed to inspire and nurture children in a child-centred environment to aid your child's education and development.</p>
+        <h4>The curriculum for the Nursery section includes:</h4>
+        <ul>
+          {nursery.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+      <img src="/images/nurseryclass.webp" alt="Nursery classroom" class="side-img" />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid-2">
+      <img src="/images/primaryclass.webp" alt="Primary classroom" class="side-img" />
+      <div>
+        <h2>Primary School</h2>
+        <hr class="rule" />
+        <p>The Primary Formal School is set to establish a fundamental and effective skill level in reading, writing and oral communication, to carry pupils into further learning.</p>
+        <h4>The curriculum for the Primary section includes:</h4>
+        <ul>
+          {primary.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { position: relative; }
+  .page-hero img { width: 100%; height: clamp(160px, 25vw, 220px); object-fit: cover; }
+    @media (max-width: 600px) {
+    .page-hero img {
+      object-position: 18%;
+    }
+  }
+
+  .page-hero .wrap { position: absolute; bottom: 0.005rem; left: 50%; transform: translateX(-50%); width: 100%; }
+  .page-hero h1 { color: #000; margin: 0; }
+  .alt-bg { background: var(--paper-card); }
+  .side-img { width: 100%; height: 100%; object-fit: cover; }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.35rem; }
+</style>

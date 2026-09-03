@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Proprietress' Note">
+  <section class="page-hero">
+    <img src="/images/princ-banner.webp" alt="" />
+    <div class="wrap"><h1>From the Proprietress' Desk</h1></div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <p>Dear Parents and Students,</p>
+      <p>It is with great pleasure that I welcome you to our school. As Proprietress, I want to reassure you of our commitment to the school and to the provision of an excellent, all-round education for our students in a state-of-the-art facility.</p>
+      <p>Our families and students can always count on <b>Swotroyal Montessori School</b> as a place of learning and support. Our commitment to serving our school community with knowledge, compassion and dedication never changes.</p>
+      <p>Academic learning and growth are our bottom line, yet we also understand that educating students means being attentive to the "whole child" and caring about their social and emotional well-being. Swotroyal Montessori School is a place of learning, belonging, growth and support for students, families and our wider community.</p>
+      <p>Thank you for being a part of our community and school. Let us know how we can help make your experience even better — we look forward to hearing from you.</p>
+      <p>Sincerely,<br /><b>Proprietress, Swotroyal Montessori School</b></p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { position: relative; }
+  .page-hero img { width: 100%; height: 220px; object-fit: cover; }
+  @media (max-width: 600px) {
+    .page-hero img {
+      object-position: 16%;
+    }
+  }
+  .page-hero .wrap { position: absolute; bottom: 0.005rem; left: 50%; transform: translateX(-50%); width: 100%; }
+  .page-hero h1 { color: #000; margin: 0; }
+  .narrow { max-width: 68ch; }
+</style>

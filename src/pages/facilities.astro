@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const facilities = ['Well-equipped library', 'Ultra-modern ICT laboratory', 'Fully air-conditioned classrooms', 'Trained and qualified staff', 'Well-secured, conducive learning environment', 'Spacious playground', 'Bus services', 'Swimming facility'];
+const gallery = ['/images/classrm2.webp', '/images/classrm22.webp', '/images/creche1.webp', '/images/school.webp'];
+---
+<Layout title="Facilities">
+  <section class="page-hero">
+    <img src="/images/facilities-banner.webp" alt="" />
+    <div class="wrap"><h1>Our Facilities</h1></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid-3">
+        {gallery.map(src => <img src={src} alt="Swotroyal school facility" class="gallery-img" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="alt-bg">
+    <div class="wrap">
+      <h2>Other Facilities Include</h2>
+      <hr class="rule" />
+      <ul class="grid-3 facility-list">
+        {facilities.map(f => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { position: relative; }
+  .page-hero img { width: 100%; height: 220px; object-fit: cover; }
+  @media (max-width: 600px) {
+    .page-hero img {
+      object-position: 15%;
+    }
+  }
+  .page-hero .wrap { position: absolute; bottom: 0.005rem; left: 50%; transform: translateX(-50%); width: 100%; }
+  .page-hero h1 { color: #000; margin: 0; }
+  .gallery-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .alt-bg { background: var(--paper-card); }
+  .facility-list { list-style: none; padding: 0; }
+  .facility-list li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+</style>

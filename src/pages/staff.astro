@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Meet the Staff">
+  <section class="page-hero">
+    <img src="/images/staff-banner.webp" alt="" />
+    <div class="wrap"><h1>Meet the Staff</h1></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p>Swotroyal School is blessed with highly trained tutors and caregivers.</p>
+      <div class="panel">
+        <!-- <p class="placeholder-note">Placeholder — staff profiles were never completed on the original site. Add photos, names and roles here (e.g. one card per teacher with a headshot and short bio) before publishing.</p> -->
+        <h3>Coming Soon</h3>
+          <p>We're updating this page with profiles of our teaching and support staff</p>
+          <p>In the meantime, book a visit with us today to meet the team behind Swotroyal School.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { position: relative; }
+  .page-hero img { width: 100%; height: 220px; object-fit: cover; }
+  @media (max-width: 600px) {
+    .page-hero img {
+      object-position: 16%;
+    }
+  }
+  .page-hero .wrap { position: absolute; bottom: 0.005rem; left: 50%; transform: translateX(-50%); width: 100%; }
+  .page-hero h1 { color: #000; margin: 0; }
+</style>
